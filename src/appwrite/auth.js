@@ -1,7 +1,7 @@
 import config from "../config/config.js";
 import { Client, Account, ID } from "appwrite";
 
-export class AuthServie {
+export class AuthService {
     client = new Client();
     account;
 
@@ -38,7 +38,7 @@ export class AuthServie {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log('Appwrite servie :: getCurrentUser :: error', error);
+            console.log('Appwrite service :: getCurrentUser :: error', error);
         }
         return null;
     }
@@ -47,11 +47,11 @@ export class AuthServie {
         try {
             return await this.account.deleteSessions();
         } catch (error) {
-            console.log('Appwrite servie :: logOut :: error', error);
+            console.log('Appwrite service :: logOut :: error', error);
         }
     }
 }
 
-const authService = new AuthServie();
+const authService = new AuthService();
 
 export default authService;
